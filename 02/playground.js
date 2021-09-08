@@ -64,9 +64,16 @@ solution(input).then(result => {
 async function solution(input) {
     // ... решение задачи
 
-    // пример вызова read
-    input.read(1, (file) => console.log(file));
+    for (let item in input) {
+        // console.log(typeof item)
+        item.read(2, (file) => console.log(typeof file));
+    }
 
+    // console.log(input['file'])
+    // пример вызова read
+    // input.read(2, (file) => console.log(typeof file));
+
+    
     // пример вызова size
-    input.size((size) => console.log(size));
+    // input.size((size) => console.log(size));
 }
