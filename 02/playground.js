@@ -64,16 +64,22 @@ solution(input).then(result => {
 async function solution(input) {
     // ... решение задачи
 
-    for (let item in input) {
-        // console.log(typeof item)
-        item.read(2, (file) => console.log(typeof file));
-    }
+
+    // for (let sub of Object.values(input)) {
+    //     console.log(typeof sub)
+    //   }
+    // for (let item in input) {
+    //     // console.log(typeof item)
+    //     item.read(2, (file) => console.log(typeof file));
+    // }
 
     // console.log(input['file'])
     // пример вызова read
-    // input.read(2, (file) => console.log(typeof file));
-
-    
+    // input.read(2, (folder) => console.log(folder.read(0, (folder)=> console.log(folder))));
+    let countElement
+    input.size((size) => this.countElement = size);
+    console.log (countElement)
+    // input.read(2, (file) => console.log(file));
     // пример вызова size
     // input.size((size) => console.log(size));
 }
