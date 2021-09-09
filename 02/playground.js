@@ -67,15 +67,13 @@ solution(input).then(result => {
 
 
 async function solution(input) {
-    global.lx = 0;
-    
+
     input.size((size) => {
             for (let index = 0; index < size; index++)
             {
                 input.read(index,(file) => {
                     if (typeof file === 'string') {
                         // console.log(file);
-                        global.lx = 3;
                     }
     
                     if (typeof file === 'object' && file != null && Object.keys(file).length != 0) {
@@ -86,7 +84,7 @@ async function solution(input) {
        
             }
         });
-     console.log(global.lx)   
+
     // return ['ffffile', 'ffiillee', 'ffiillee', 'fiiile', 'filllle']
 
 }
