@@ -53,7 +53,7 @@ const input = Folder([
 
 // проверка решения
 solution(input).then(result => {
-    console.log (result)
+    // console.log (result)
     const answer = ['ffffile', 'ffiillee', 'ffiillee', 'fiiile', 'filllle'];
     const isEqual = String(answer) === String(result);
 
@@ -68,22 +68,30 @@ solution(input).then(result => {
 
 async function solution(input) {
 
-    input.size((size) => {
+   async function pushArray(input, arr) {
+      input.size((size) => {
             for (let index = 0; index < size; index++)
             {
                 input.read(index,(file) => {
                     if (typeof file === 'string') {
-                        // console.log(file);
+                        arr.push(file);
+                        // console.log (arr);
+                        // return arr;
                     }
-    
                     if (typeof file === 'object' && file != null && Object.keys(file).length != 0) {
-                        solution(file);       
+                        pushArray(file,arr);       
                     }
     
                 });
        
             }
         });
+        return arr;
+    };
+
+    pushArray(input,[]).then(result => {
+        console.log (result);
+    });
 
     // return ['ffffile', 'ffiillee', 'ffiillee', 'fiiile', 'filllle']
 
