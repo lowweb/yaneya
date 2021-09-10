@@ -183,13 +183,58 @@
     
     <style>
         /* добавьте стили */
-        * {
-	        margin: 0;
-	        padding: 0;
-	        text-decoration: none;
-	        list-style-type: none;
-	        box-sizing: border-box;
+
+        /* Reset style */
+        *,
+        *::before,
+        *::after {
+          margin: 0;
+          padding: 0;  
+          box-sizing: border-box;
         }
+
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ul[class],
+        ol[class],
+        li,
+        figure,
+        figcaption,
+        blockquote,
+        dl,
+        dd {
+          margin: 0;
+        }
+
+        ul[class],
+        ol[class] {
+          list-style: none;
+        }
+
+        a:not([class]) {
+          text-decoration-skip-ink: auto;
+        }
+
+
+        img {
+          max-width: 100%;
+          display: block;
+        }
+
+
+        input,
+        button,
+        textarea,
+        select {
+          font: inherit;
+        }
+
+
 
         body {
             font-size: 16px;
@@ -229,7 +274,8 @@
             line-height: 1.5;
             color: var(--color-white);
             background-color: var(--color-accent);
-            padding: 12px 12px;
+            padding: 12px 13px;
+            letter-spacing: -0.15px;
         }
 
         /* Footer */
@@ -276,31 +322,33 @@
 
         .filter__group {
             border: none;
-            /* margin-bottom: 2px; */
+            /* margin-bottom: 1.5px; */
+        }
+
+        .filter__group:last-child {
+            margin-bottom: 0;
         }
 
         .filter__items {
-            padding: 0px 0 0 16px;
+            /* padding: 0px 0 0 17px; */
         }
         .filter__item {
             list-style: none;
-            padding: 1px 0;
-            display: flex;
+            padding: 1px 16px;
         }
         
         /* Check */
         .check {
-            display: flex;
-            align-items: center;
-        }
-        .check__label {
-            /* line-height: 1.6; */
+            display: inline-block
         }
 
         .check__input {
-            margin-right: 0.25em;
+            /* margin-right: 0.25em; */
         }
 
+        .check__label {
+            margin-left: -0.9px;
+        }
 
         /* Content */
         .content {
@@ -353,13 +401,6 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 12px;
         }
-
-        /* @media screen and (max-width: 766px ) {
-            .pop {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-        } */
 
         @media screen and (max-width: 516px ) {
             .pop {
