@@ -174,7 +174,7 @@
                 <a href="#" class="footer__link">Контакты</a>
             </div>
             <div class="footer__column">
-                <div class="copyright">©&nbsp;2021&nbsp;&nbsp;<a class="copyright__link footer__link" href="#">Магазин игрушек</a></div>
+                <div class="copyright">©&nbsp;2021&nbsp;<a class="copyright__link footer__link" href="#">Магазин игрушек</a></div>
             </div>
         </footer>
     </div>
@@ -195,10 +195,17 @@
             font-size: 16px;
         }
 
+        h1 {
+            letter-spacing: 0.25px;;
+        }
         h3 {
             font-size: 16px;
+            letter-spacing: -0.05px;
         }
-
+        
+        h2 {
+            letter-spacing: -0.12px;
+        }
         .wrap {
             width: 100%;
             max-width: 960px;
@@ -219,9 +226,10 @@
         /* Header */
         .header{
             font-size: 24px;
+            line-height: 1.5;
             color: var(--color-white);
             background-color: var(--color-accent);
-            padding: 20px 12px;
+            padding: 12px 12px;
         }
 
         /* Footer */
@@ -263,23 +271,34 @@
 
         .filter__cap {
             font-weight: bold;
+            margin-bottom: 1.8px;
         }
 
         .filter__group {
             border: none;
-            margin-bottom: 12px;
+            /* margin-bottom: 2px; */
         }
 
         .filter__items {
-            margin: 0 0 0 12px;
+            padding: 0px 0 0 16px;
         }
         .filter__item {
             list-style: none;
+            padding: 1px 0;
+            display: flex;
         }
         
         /* Check */
+        .check {
+            display: flex;
+            align-items: center;
+        }
         .check__label {
-            line-height: 1.8;
+            /* line-height: 1.6; */
+        }
+
+        .check__input {
+            margin-right: 0.25em;
         }
 
 
@@ -335,12 +354,12 @@
             gap: 12px;
         }
 
-        @media screen and (max-width: 812px ) {
+        /* @media screen and (max-width: 766px ) {
             .pop {
                 grid-template-columns: 1fr 1fr;
             }
             
-        }
+        } */
 
         @media screen and (max-width: 516px ) {
             .pop {
