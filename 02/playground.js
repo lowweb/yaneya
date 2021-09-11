@@ -68,28 +68,28 @@ solution(input).then(result => {
 
 async function solution(input) {
 
-function pushArray(input, arr) {
+function pushArray(input) {
       input.size((size) => {
             for (let index = 0; index < size; index++)
             {
                 input.read(index,(file) => {
                     if (typeof file === 'string') {
-                        // arr.push(file);
+                       
                         console.log (file);
-                        // return arr;
+                        
                     }
                     if (typeof file === 'object' && file != null && Object.keys(file).length != 0) {
-                        pushArray(file,arr);       
+                        pushArray(file);       
                     }
     
                 });
        
             }
         });
-        return arr;
+       
     };
 
-    pushArray(input,[])
+    pushArray(input)
 
     // return ['ffffile', 'ffiillee', 'ffiillee', 'fiiile', 'filllle']
 
