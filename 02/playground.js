@@ -65,7 +65,7 @@ solution(input).then(result => {
 });
 
 
-
+//свой код
 async function solution(input) {
 
 function pushArray(input) {
