@@ -53,7 +53,6 @@ const input = Folder([
 
 // проверка решения
 solution(input).then(result => {
-    // console.log (result)
     const answer = ['ffffile', 'ffiillee', 'ffiillee', 'fiiile', 'filllle'];
     const isEqual = String(answer) === String(result);
 
@@ -65,32 +64,51 @@ solution(input).then(result => {
 });
 
 
-//свой код
+
 async function solution(input) {
 
-function pushArray(input) {
-      input.size((size) => {
-            for (let index = 0; index < size; index++)
-            {
-                input.read(index,(file) => {
-                    if (typeof file === 'string') {
-                       
-                        console.log (file);
-                        
-                    }
-                    if (typeof file === 'object' && file != null && Object.keys(file).length != 0) {
-                        pushArray(file);       
-                    }
+async function checkItem(input,resultArr) {
+    let size = await new Promise(resolve=> input.size(x => resolve(x)))
+    for (let index = 0; index < size; index++)
+    {
+        let item = await new Promise(resolve=> input.read(index,(file) => {resolve(file)}))
+
+        if (typeof item === 'string' && item != 'file') {
+            resultArr.push(item)
+        }
+        if (typeof item === 'object' && item != null && Object.keys(item).length != 0) {
+            await checkItem(item,resultArr)      
+        }
+    }
+    return resultArr
+}
+
+let result = await checkItem(input,[])
+result.sort();
+
+return result;
+}
+
+
+module.exports = async function(input) {
+    async function checkItem(input,resultArr) {
+        let size = await new Promise(resolve=> input.size(x => resolve(x)))
+        for (let index = 0; index < size; index++)
+        {
+            let item = await new Promise(resolve=> input.read(index,(file) => {resolve(file)}))
     
-                });
-       
+            if (typeof item === 'string' && item != 'file') {
+                resultArr.push(item)
             }
-        });
-       
-    };
-
-    pushArray(input)
-
-    // return ['ffffile', 'ffiillee', 'ffiillee', 'fiiile', 'filllle']
-
+            if (typeof item === 'object' && item != null && Object.keys(item).length != 0) {
+                await checkItem(item,resultArr)      
+            }
+        }
+        return resultArr
+    }
+    
+    let result = await checkItem(input,[])
+    result.sort();
+    
+    return result;
 }
